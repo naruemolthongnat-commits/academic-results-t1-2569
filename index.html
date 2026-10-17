@@ -2,26 +2,59 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>ระบบตรวจสอบผลการเรียนรายบุคคลแบบออนไลน์ - โรงเรียนวัดหงส์ปทุมาวาส</title>
+    
+    <!-- PWA & Mobile Web App Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#007bff">
+    
     <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
+            height: -webkit-fill-available; /* แก้ปัญหาความสูงบน iOS Safari */
             overflow: hidden;
-            background-color: #fdfbff;
+            background-color: #007bff; /* สีพื้นหลังกลมกลืนกับ Header สีฟ้า */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
+
+        .iframe-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: -webkit-fill-available;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch; /* เลื่อนหน้าจอนุ่มนวลบน iOS */
+        }
+
         iframe {
             width: 100%;
             height: 100%;
             border: none;
             display: block;
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbyCLPAlmQjGJolfCuoqLz7v_UA3fgwQhgPBu_4bqop_xnM1Ob24sU0QJyLIQxmLPn3Nsw/exec"></iframe>
+    <div class="iframe-wrapper">
+        <iframe 
+            src="https://script.google.com/macros/s/AKfycbyCLPAlmQjGJolfCuoqLz7v_UA3fgwQhgPBu_4bqop_xnM1Ob24sU0QJyLIQxmLPn3Nsw/exec"
+            allow="fullscreen"
+            loading="eager">
+        </iframe>
+    </div>
 </body>
 </html>
